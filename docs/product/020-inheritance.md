@@ -1,5 +1,6 @@
 ---
 title: Наследование
+organization: nixel2007
 ---
 
 # Наследование
