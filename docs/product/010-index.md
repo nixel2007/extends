@@ -1,6 +1,5 @@
 ---
 title: Описание
-organization: nixel2007
 ---
 
 # extends
