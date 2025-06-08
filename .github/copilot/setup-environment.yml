@@ -1,0 +1,37 @@
+name: Setup OneScript Development Environment
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Mono
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mono-complete
+      
+      - name: Install OVM (OneScript Version Manager)
+        run: |
+          wget -O ovm.exe https://github.com/oscript-library/ovm/releases/latest/download/ovm.exe
+          sudo chmod +x ovm.exe
+          sudo mv ovm.exe /usr/local/bin/ovm.exe
+          
+      - name: Install OneScript
+        run: |
+          mono /usr/local/bin/ovm.exe use --install dev
+          
+      - name: Add OneScript to PATH
+        run: |
+          echo 'export PATH="$HOME/.local/share/ovm/current/bin:$PATH"' >> ~/.bashrc
+          source ~/.bashrc
+          
+      - name: Install project dependencies
+        run: |
+          # Install development dependencies
+          ~/.local/share/ovm/current/bin/opm install -l
+          
+      - name: Verify installation
+        run: |
+          mono /usr/local/bin/ovm.exe list
+          ~/.local/share/ovm/current/bin/oscript -version
