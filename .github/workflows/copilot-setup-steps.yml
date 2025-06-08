@@ -35,7 +35,8 @@ jobs:
       - name: Установка OneScript
         uses: otymko/setup-onescript@v1.5
         with:
-          version: ${{ steps.extract_oscript_version.outputs.version }}
+          version: dev
+          # version: ${{ steps.extract_oscript_version.outputs.version }}
 
       - name: Установка зависимостей
         run: |
