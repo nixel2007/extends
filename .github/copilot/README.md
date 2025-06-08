@@ -1,50 +1,40 @@
 # GitHub Copilot Development Environment Setup
 
-This directory contains configuration files and scripts to set up the OneScript development environment for GitHub Copilot coding agent.
+This directory contains configuration files to set up the OneScript development environment for GitHub Copilot coding agent.
 
 ## Files
 
-### Setup Scripts
-
-- **`setup.sh`** - Main setup script that installs OneScript runtime, OVM, and project dependencies
-- **`setup-environment.yml`** - GitHub Actions workflow for automated environment setup
-
 ### Configuration
 
-- **`config.yml`** - Development environment configuration for Copilot, including:
-  - Setup steps and commands
-  - Environment variables
-  - Available tools and their version commands
-  - Project structure information
-  - Build and test commands
-  - Dependency information
+- **`copilot-setup-steps.yml`** - GitHub Actions workflow that sets up the OneScript development environment, including:
+  - OneScript runtime installation via `otymko/setup-onescript@v1.5`
+  - Version detection from packagedef
+  - OPM dependency installation
+  - Project dependencies setup
 
 ## Usage
 
-The setup script automatically:
+The workflow automatically:
 
-1. **Installs system dependencies** - mono-complete, curl, wget
-2. **Installs OVM** (OneScript Version Manager) - Downloads and configures ovm.exe
-3. **Installs OneScript** - Uses OVM to install the dev version of OneScript
-4. **Installs essential packages** - opm, oscript-config
-5. **Installs project dependencies** - All runtime and development dependencies from packagedef
+1. **Checks out the repository** - Uses `actions/checkout@v4`
+2. **Detects OneScript version** - Extracts version from packagedef or uses "stable" as default
+3. **Installs OneScript** - Uses `otymko/setup-onescript@v1.5` action
+4. **Installs dependencies** - Runs `opm install opm` and `opm install -l --dev`
 
 ## Environment Details
 
 After setup, the following tools are available:
 
-- **`oscript`** - OneScript runtime (version 2.0.0-rc.7+598)
+- **`oscript`** - OneScript runtime 
 - **`ovm`** - OneScript Version Manager 
 - **`opm`** - OneScript Package Manager
-
-All tools are installed under `~/.local/share/ovm/current/bin/` and added to PATH.
 
 ## Running Tests
 
 You can run the project tests with:
 
 ```bash
-oscript tests/ИнтеграционныйТест.os
+oscript tasks/test.os
 ```
 
 ## Dependencies
