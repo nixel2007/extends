@@ -44,4 +44,4 @@ echo "🔗 Installing project dependencies..."
 opm install -l
 
 echo "✅ OneScript development environment setup complete!"
-echo "🧪 You can now run tests with: oscript tests/ИнтеграционныйТест.os"
+echo "🧪 You can now run tests with: oscript tasks/test.os"
