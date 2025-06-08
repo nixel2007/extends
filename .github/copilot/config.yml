@@ -6,35 +6,5 @@ setup_steps:
 environment:
   PATH: "$HOME/.local/bin:$HOME/.local/share/ovm/current/bin:$PATH"
   
-tools:
-  - name: "oscript"
-    description: "OneScript runtime for executing .os files"
-    version_command: "oscript -version"
-  - name: "opm" 
-    description: "OneScript Package Manager"
-    version_command: "opm version"
-  - name: "ovm"
-    description: "OneScript Version Manager"
-    version_command: "ovm list"
-
-project_structure:
-  source_dir: "src"
-  test_dir: "tests"
-  docs_dir: "docs"
-  main_files:
-    - "packagedef"
-    - "README.md"
-    
 build_commands:
   test: "oscript tasks/test.os"
-  
-dependencies:
-  runtime:
-    - "annotations@1.2.0"
-    - "decorator@2.0.2" 
-    - "reflector@0.7.1"
-  development:
-    - "1testrunner@1.9.2"
-    - "asserts@1.4.0"
-    - "coverage@0.7.0"
-    - "fs@1.2.0"
