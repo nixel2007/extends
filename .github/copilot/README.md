@@ -37,6 +37,19 @@ You can run the project tests with:
 oscript tasks/test.os
 ```
 
+## Running Tests with Code Coverage
+
+You can run tests with code coverage collection:
+
+```bash
+oscript tasks/coverage.os
+```
+
+This will generate coverage reports in multiple formats:
+- `coverage.xml` - Cobertura format
+- `genericCoverage.xml` - Generic coverage format  
+- `stat.json` - Coverage statistics in JSON format
+
 ## Dependencies
 
 The environment includes all dependencies specified in `packagedef`:
