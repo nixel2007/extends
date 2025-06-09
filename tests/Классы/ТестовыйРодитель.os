@@ -1,3 +1,5 @@
+// BSLLS:FunctionShouldHaveReturn-off
+
 Процедура ТестоваяПроцедура() Экспорт
 КонецПроцедуры
 

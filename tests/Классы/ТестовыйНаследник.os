@@ -1,3 +1,5 @@
+// BSLLS:FunctionShouldHaveReturn-off
+
 &Родитель
 Перем СсылкаНаРодителя;
 
