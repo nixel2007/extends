@@ -17,7 +17,7 @@ jobs:
     # Setup steps for OneScript development environment
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Вычисление версии OneScript
         shell: bash
